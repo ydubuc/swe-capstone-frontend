@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios";
 function SignUp() {
   const [state, setState] = React.useState({
     firstName: "",
@@ -15,11 +15,22 @@ function SignUp() {
       [evt.target.name]: value,
     });
   }
+  const handleSubmit = event => {
+    event.preventDefault();
+    axios.post("  https://swe-capstone-backend.herokuapp.com/auth/sign-up", {
+      firstName: state.firstName,
+      lastName: state.lastName,
+      email:state.email,
+      password:state.password
+    })
+    .then((response) => {
+      console.log(response);
+    });
+  };
 
-  console.log(state);
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
 
       <div className="form-group">
