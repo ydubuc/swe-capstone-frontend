@@ -7,7 +7,8 @@ function Login() {
   const [state, setState] = React.useState({
     email: "",
     password: "",
-    created:false
+    created:false,
+    message:""
   
   });
   function handleChange(evt) {
@@ -24,21 +25,38 @@ function Login() {
       email: state.email,
       password: state.password
     })
+    .catch((error) => {
+    //  console.log("hi");
+     unreadMessages=true;
+    //  console.log( error.response.data.message);
+     setState({
+      ...state,
+      created: true,
+      message:error.response.data.message,
+    });
+    })
     .then((response) => {
-      console.log("hi")
-      console.log(response);
-      unreadMessages=true;
-      console.log( unreadMessages)
-      // setState({
-      //   ...state,
-      //  created: true
-      // });
-      history.push(
-        {
-            pathname:"/tickets",
-            // state:{detail:response.data}
+      // console.log("hi")
+      // console.log(response);
+   
+      if(response){
+      setState({
+        ...state,
+       created: false
+      });
+     
+        history.push(
+          {
+              pathname:"/tickets",
+              // state:{detail:response.data}
+      });
+      }
+     
+
     });
-    });
+    // .catch((response) => {
+    //   console.log(response);
+    //   })
   };
   console.log(state);
   return (
@@ -84,9 +102,9 @@ function Login() {
       <p className="forgot-password text-right">
         Forgot <a href="#">password?</a>
       </p>
-      {unreadMessages &&
-    <p>
-      You have  unread messages.
+      {state.created &&
+    <p style={{color: "red"}}> 
+      {state.message}
     </p>
     
   }
