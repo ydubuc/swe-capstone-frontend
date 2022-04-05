@@ -1,11 +1,15 @@
 import React from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 function SignUp() {
+  const history = useHistory();
   const [state, setState] = React.useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    message:"",
+    created:false
   });
 
   function handleChange(evt) {
@@ -23,8 +27,30 @@ function SignUp() {
       email:state.email,
       password:state.password
     })
+    .catch((error) => {
+      console.log("hi");
+    
+      console.log( error.response.data.message);
+      setState({
+       ...state,
+       created: true,
+       message:error.response.data.message,
+     });
+     })
     .then((response) => {
       console.log(response);
+      if(response){
+        setState({
+          ...state,
+         created: false,
+         message:""
+        });
+        history.push(
+          {
+              pathname:"/sign-in",
+              // state:{detail:response.data}
+      });
+        }
     });
   };
 
@@ -83,6 +109,10 @@ function SignUp() {
       <p className="forgot-password text-right">
         Already registered <a href="#">sign in?</a>
       </p>
+      {state.created &&
+    <p style={{color: "red"}}> 
+      {state.message}
+        </p>}
     </form>
   );
 }
