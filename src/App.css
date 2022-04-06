@@ -329,7 +329,7 @@ body{
 @media only screen and (min-width: 992px) {
   .logo-nav{
     left: 50px;
-    bottom: 2px;
+    bottom: 1px;
   }
   .navbar li:last-child{
     margin-right: 50px;
