@@ -60,7 +60,10 @@ function Login() {
   };
   console.log(state);
   return (
-    <div>
+
+    
+      <div className="auth-wrapper">
+       <div className="auth-inner">
 <form onSubmit={handleSubmit}>
       <h3>Sign In</h3>
       <div className="form-group">
@@ -112,6 +115,7 @@ function Login() {
     {/* <div className="container">
       {state.created && <p>sucess</p>}
     </div> */}
+    </div>
     </div>
     
   );

@@ -56,6 +56,8 @@ function SignUp() {
 
 
   return (
+    <div className="auth-wrapper">
+        <div className="auth-inner">
     <form onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
 
@@ -114,6 +116,8 @@ function SignUp() {
       {state.message}
         </p>}
     </form>
+    </div>
+    </div>
   );
 }
 

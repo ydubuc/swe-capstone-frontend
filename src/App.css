@@ -20,3 +20,378 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar{
+  min-height: 50px;
+  z-index: 1;
+  background: #fff;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.navbar li{
+  display:block;
+  text-decoration: none;
+}
+.navbar li a{
+  color: #525252;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  padding: 16px 10px;
+  display: block;
+  font-family: proxima-nova,sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 10px;
+  display: block;
+  font-family: proxima-nova,sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.logo-nav{
+  position: absolute;
+  left: 10px;
+}
+
+.image{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-attachment: local;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top:-21px;
+  z-index: -1;
+}
+
+.inside{
+  /* visibility: visible; */
+  /* -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp; */
+  padding: 50px;
+  width: 33.3333334%;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+
+}
+.Highlight{
+  padding: 5px;
+    margin: 25px 15%;
+    background: linear-gradient(to right, rgba(234,89,18,1) 0%,rgba(247,25,92,1) 100%);
+    border-radius: 500px;
+}
+.HighlightIconInner{
+  border-radius: 500px;
+  background: #000;
+  position: relative;
+  box-sizing: border-box;
+}
+.HighlightIconInner img{
+  padding:38px 30px 66px 30px;
+  vertical-align: middle;
+  width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+.HighlightIconInner p{
+  margin:0;
+}
+.inside:hover{
+  transform-origin: center;
+    transform: scale(1.1);
+    cursor: default;
+}
+.navbar li a:hover{
+  background-color: #530102;
+  color: white;
+}
+
+.logo-nav:hover .logo-img{
+  background-color: white;
+}
+
+.home h1{
+  
+  /* font-size: 100%; */
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: inherit;
+}
+.home button{
+  padding: 12.4px 33px;
+    font-weight: 600;
+    position: relative;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    background: 0 0;
+    margin-left: 5px;
+    color: #fff;
+    outline: 0;
+    border: 3px solid #FFF;
+    border-radius: 4px;
+    letter-spacing: .02em;
+}
+.home button:hover{
+  background: #fff;
+  color: #323232;
+}
+
+/*****************Logo Title - Start********************/
+.logo-title{
+  width: 200px;
+  height: 100px;
+}
+/***************Logo Title -End*******************/
+
+/*************Footer - Start******************/
+.footer-con{
+  background-color: #532323;
+  color: #b29fa7;
+}
+
+.logo-image{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 150px;
+  height: 90px;
+}
+
+.media-img{
+  width: 15px;
+  height: 15px;
+  margin: 10px 10px 15px 10px;
+}
+
+.social-media{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer-line{
+  height: 1px;
+  background-color: gray;
+  width: 40%;
+  margin: auto;
+}
+
+.anchor{
+  color: #b29fa7;
+}
+
+.anchor:hover{
+  color: white;
+  text-decoration: none;
+}
+
+/*************Footer - End******************/
+
+/*************Common Style Sheet**************/
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+body{
+  background-color: #fff !important;
+}
+.page-title {
+  display: flex;
+  height: 200px;
+  background-image: linear-gradient(to bottom right, #77838d, #3f0a17 75.63%);
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.page-title h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.body-row, .section-title, .section-content{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.body-row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.section-title, .section-content{
+  word-wrap: break-word;      
+  width: 100%;
+  font-family: "Source Sans Pro";
+}
+
+.section-title h2 {
+  font-size: 20px;
+  color: #5B6575;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.section-content p {
+  font-size: 18px;
+}
+
+.member-img {
+  width: 250px;
+  height:250px;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Source Sans Pro";
+}
+
+.member-info h3 {
+  margin-top: 10px;
+}
+
+.member-info h5 {
+  color: grey;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.member-info p {
+  font-size: 14px;
+}
+/*******Footer********/
+
+/***********Responsive with multiple devices**************/
+@media only screen and (min-width: 768px) {
+  .logo-nav{
+    left: 30px;
+  }
+  .navbar li:last-child{
+    margin-right: 30px;
+  }
+  .body-row, .section-title, .section-content{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .section-title h2{
+    font-size: 22px;
+  }
+  .section-content p{
+    font-size: 20px;
+  }
+  .member-info h3{
+    font-size: 24px;
+  }
+  .member-info h5{
+    font-size: 18px;
+  }
+  .member-info p{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .logo-nav{
+    left: 50px;
+  }
+  .navbar li:last-child{
+    margin-right: 50px;
+  }
+  .body-row, .section-title, .section-content{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .body-row-member{
+    flex-direction: row;
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .member-info{
+    padding-left: 30px;
+    text-align: left;
+  }
+  .body-row-member{
+    margin-bottom: 60px;
+  }
+
+  /******Footer******/
+  .footer-navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-navigation-col{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 10px;
+  }
+
+  .separation::after{
+    content: "\00a0\00a0\00a0\00a0\00a0|";
+  }
+  .mobile{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .mobile{
+    display: block !important;
+  }
+  .mobile1{
+    padding-left: 20px !important;
+  }
+  .inside{
+    width: 350px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+  
+  .game-name-div {
+    width: 40px !important;
+    height: 35px !important;
+  }
+  .game-name-board {
+    margin: 30px 20px 30px 5px !important;
+  }
+  .navbar li a{
+    font-size:9px;
+  }
+}
