@@ -21,7 +21,7 @@ describe("testing", () =>{
 //   // Test #2 
    test("render text in mission", ()=>{
      const wrapper = shallow(<App/>);
-   expect(wrapper.find('li .Login').text()).toContain("Login");
+   expect(wrapper.find('li .Login1').text()).toContain("Login");
   });
 
 // // Test #3
