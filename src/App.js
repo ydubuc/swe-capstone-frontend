@@ -71,7 +71,7 @@ function App() {
             </li>
             <li>
            
-              <Link  className="Login" to={"/sign-in"}>Login</Link>
+              <Link  className="Login1" to={"/sign-in"}>Login</Link>
             </li>
             <li>
               <Link to={"/sign-up"}>Sign up</Link>
