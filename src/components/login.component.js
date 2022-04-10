@@ -11,11 +11,11 @@ function Login() {
     message:""
   
   });
-  function handleChange(name,evt) {
+  function handleChange(evt) {
     const value = evt.target.value;
     setState({
       ...state,
-      [name]: value,
+      [evt.target.name]: value,
     });
   }
   
@@ -72,8 +72,7 @@ function Login() {
           type="email"
           className="form-control"
           placeholder="Enter email"
-          value={this.state.email}
-          onChange={this.handleChange('email')}
+          onChange={handleChange}
           name="email"
         />
       </div>
@@ -81,12 +80,10 @@ function Login() {
         <label>Password</label>
         <input
           type="password"
-          ref="pollName"
-          value={this.state.password}
           className="form-control"
           placeholder="Enter password"
           name="password"
-          onChange={this.handleChange('password')}
+          onChange={handleChange}
         />
       </div>
       <div className="form-group">
