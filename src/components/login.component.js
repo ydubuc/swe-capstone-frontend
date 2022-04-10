@@ -70,9 +70,10 @@ function Login() {
         <label>Email address</label>
         <input
           type="email"
-          className="form-control"
+          className="form-control em"
           placeholder="Enter email"
           onChange={handleChange}
+          value={state.email}
           name="email"
         />
       </div>
@@ -80,10 +81,11 @@ function Login() {
         <label>Password</label>
         <input
           type="password"
-          className="form-control"
+          className="form-control pa"
           placeholder="Enter password"
           name="password"
           onChange={handleChange}
+          value={state.password}
         />
       </div>
       <div className="form-group">

@@ -218,13 +218,30 @@ test('valid path should redirect to Login', () => {
 //   expect(wrapper.find('.GopiName h5').text()).toContain("Team Member");
 // });
 
-it('one',()=>{
+it('Login email',()=>{
   const wrapper=shallow(<Login />)
-  let nameInput=wrapper.find('input').first()
+  let nameInput=wrapper.find('.em')
   nameInput.simulate('change',{
-    target:{value:'gmacha@students.kennesaw.edu'}
+    target:{name:'email',value:'gmacha@students.kennesaw.edu'}
   })
-   nameInput=wrapper.find('input').first()
-   expect(nameInput.props().value).toEqual('gmacha@students.kennesaw.edu')
+  console.log(nameInput);
+  console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".em").prop("value")).toEqual("gmacha@students.kennesaw.edu");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+it('Login password',()=>{
+  const wrapper=shallow(<Login />)
+  let nameInput=wrapper.find('.pa')
+  nameInput.simulate('change',{
+    target:{name:'password',value:'Betalian@123'}
+  })
+  console.log(nameInput);
+  console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
 })
   })
