@@ -70,7 +70,6 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-
               <Link  className="Login1" to={"/sign-in"}>Login</Link>
             </li>
             <li>
@@ -80,7 +79,7 @@ function App() {
               <Link to="/about">About Us</Link>
             </li>
             <li>
-              <a href="mailto:ksuwebservices@gmail.com">Email Us</a>
+              <a href="mailto:ksuwebservices@gmail.com">Email Us</a> 
             </li>
             {/* <li>
               <Link to="/start">Started</Link>
