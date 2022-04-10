@@ -47,7 +47,7 @@ function Home(){
             <div style={{height:"624px",position:"relative"}}>
             <div style={{transform:'translatey(300px)'}}>
         <div className='Line1'> <h1>The Ultimate Destination</h1></div>
-<div className= 'Line2'> <h1>For Call of Duty Players Match Making</h1></div>
+<div className= 'Line2'> <h1>For IT Management</h1></div>
                <div className='getStartedButton'>  <button  onClick={handleClick}>Get Started</button></div>
             </div>
             <div  className="image" style={{ backgroundImage: `url(${photo})`}}></div>
@@ -84,7 +84,7 @@ function Home(){
             </div>
             <h3>Time</h3>
 <div>
-    <p>Save time by finding connections in a convenient location. GMatch provides all the information you need to connect to other users. GMatch allows you to find your matches quickly by allowing you to sort the data and add friends</p>
+    <p>Saves time by providing an all-in-one interface that has all the need information that the IT department will need and help to better allocate the resources of the company. SummIT allows you to prioritize the needs of the organization for efficient time management.</p>
 </div>
             </Col>
             <Col  className="inside">
@@ -99,7 +99,7 @@ function Home(){
             </div>
             <h3>Quality</h3>
 <div>
-    <p>In this unique experience, find connections through GMatch, the highest quality matching website for gamers out there. On this sleek application, you can find the best connections in a simple, high-quality space.</p>
+    <p>SummIT provides a quality framework for organization to properly manage its IT department. SummIT offers the best open-source management tool in the market. </p>
 </div>
             </Col>
             <Col  className="inside">
@@ -114,7 +114,7 @@ function Home(){
             </div>
             <h3>Forefront</h3>
 <div className="benefit3">
-    <p>Always have the latest, up-to-date information. GMatch will provide you with the current statistics and information, along with displaying them clearly. By using the latest data, we ensure that you will have the best options available and not have to worry that your results are outdated. </p>
+    <p>SummIT will provide companies with the needed statistics along with displaying graphically pleasing data for asset management, licensing tracking and ticketing issue management. SummIT make decision making easier and have continuous access to the latest information.</p>
 </div>
             </Col>
         </Col>

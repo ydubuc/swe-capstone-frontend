@@ -19,15 +19,13 @@ function About(){
                 <Col className="section-title"><h2>MISSION</h2></Col>
             </Row>
             <Row className="body-row">
-                <Col className="section-content mission-text"><p>Playing games allows an escape from reality into another reality. The competition to win by itself gives gaming an addictive flavor to it. Mainly our system aims to solve the hustle gamers have to go through to find the perfect gaming partner. In order to comprehend and completely immerse once self into this multi playing competitive environment perfectly selected complimentary skill set between team mates or partners is needed. Once that is achieved the likelihood of winning sky rockets than prior odds. Our mission is mainly to provide that for gamers so that they have the perfect team and partnerships and win every match they go in to.</p></Col>
+                <Col className="section-content mission-text"><p>Companies need IT management tools for the day-to-day activities of their organization. The constant drive to have a tool that simplifies and optimize the work of the IT department. We built our system to meet all the needs and requirements of an IT department taking into consideration the little things from licensing asset tracking to the bigger things of budget management. Our Mission is “Maximize your time with a quality to be at the forefront of your business”. </p></Col>
             </Row>
             <Row className="body-row">
              <Col className="section-title OS_Title"><h2>OUR STORY</h2></Col>
             </Row>
             <Row className="body-row">
-             <Col className="section-content Our-Story"><p>The GMatch team is comprised of four unique individuals with a common goal: creating a platform to help players find their team. With GMatch, you can match with gamers with similar interests and skill level. GMatch is the premier site to match gamers all over the world and is the perfect haven for locating your ideal team.
-                                                    Upon seeing first-hand how difficult it can be to find teammates for online games, we began developing this app to help gamers globally and to fill a sector of the gaming world that's missing. 
-                                                    Use GMatch to find players who are in search of teammates with similar skill sets, tendencies, and attitudes. Our team wants to help you find your team.</p></Col>
+             <Col className="section-content Our-Story"><p>The SummIT team consist of six unique individuals with a common goal: creating a tool for managing an IT department (licensing, asset tracking, budget management, self-service software/configuration, issue management/tickets, etc.). With SummIT companies IT department are able to run their activities efficiently and log in tickets and perform IT servicing activities. We observed companies and inferred from monitoring their activities the need to have a tool that does all the managing and offers the ability for users to login and the backdrop was also to make this tool open source for future development and ease of use. Using SummIT the management of an IT department will be optimal and effective for your company.  </p></Col>
             </Row>
             <Row className="body-row">
                <Col className="section-title teamTitle"><h2>MEET THE TEAM MEMBERS</h2></Col>

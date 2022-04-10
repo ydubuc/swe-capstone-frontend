@@ -4,10 +4,19 @@ import { render, screen } from '@testing-library/react';
 // import Footer from './Footer';
 // import HowItWorks from './howItWorks';
 // import Home from './home';
+
 import React from "react";
+import { Link } from 'react-router';
 import {shallow,configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { MemoryRouter } from "react-router-dom";
+import { mount } from 'enzyme';
+import Home from './components/home';
+import Login from "./components/login.component";
+import About from './components/about'
+import SignUp from "./components/signup.component";
 configure({adapter: new Adapter()});
+
 describe("testing", () =>{
   // Test #1
  // test('render the About Us title', () => {
@@ -25,11 +34,95 @@ describe("testing", () =>{
   });
 
 // // Test #3
-// test("render the team member section title", () => {
-//   const wrapper = shallow(<About/>);
-//   expect(wrapper.find('.teamTitle h2').text()).toContain("MEET THE TEAM MEMBERS");
+test('valid path should redirect to Home', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ '/' ]}>
+      <App/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Home)).toHaveLength(1);
+   
+});
+
+// test('valid path should redirect to ticket', () => {
+//   const wrapper = mount(
+//     <MemoryRouter initialEntries={[ "/tickets" ]}>
+//       <ticket/>
+//     </MemoryRouter>
+//   );
+//   expect(wrapper.find(ticket)).toHaveLength(1);
+
 // });
-      
+
+test('valid path should redirect to About', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/about" ]}>
+      <About/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(About)).toHaveLength(1);
+
+});
+
+test('valid path should redirect to Login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-up" ]}>
+      <SignUp/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(SignUp)).toHaveLength(1);
+
+}); 
+
+
+// it('calls handleDropdown onChange', () => {
+//   const handleDropdown = jest.fn();
+//   const wrapper = shallow(<handleChange handleDropdown={handleDropdown} />);
+  
+//   wrapper.find(Login).first().invoke('onChange', { name: { value: 'A' } });
+//   expect(handleDropdown).toBeCalledWith(whatever); // whatever NativeSelect calls it with
+// });
+// it('should call onChange prop with input value', () => {
+//   const onSearchMock = jest.fn();
+//   const component = enzyme.mount(<Login handleChange={handleChange} value="custom value" />);
+//   component.find('input').simulate('change');
+//   expect(handleChange).toBeCalledWith('custom value');
+// });
+// it("responds to name change", done => {
+//   const handleChangeSpy = sinon.spy(Login.prototype, "handleChange");
+//   const event = {target: {name: "email", value: "gmacha@students.kennesaw.edu"}};
+//   const wrap = mount(
+//     <Login/>
+//   );
+//   wrap.ref('pollName').simulate('change', event);
+//   expect(handleChangeSpy.calledOnce).to.equal(true);
+// })
+// it('should pass a selected value to the onChange function', () => {
+//   const component = shallow(<Login />);
+//   component.find('input').simulate('change', { target: {
+//     value: 'Change function' }
+//   });
+
+  // expect(toJson(component)).toMatchSnapshot();
+// });
+// test('valid path should redirect to Login', () => {
+//   const wrapper = mount(
+//     <MemoryRouter initialEntries={[ "/sign-in" ]}>
+//       <Login/>
+//     </MemoryRouter>
+//   );
+//   expect(wrapper.find(Login)).toHaveLength(1);
+
+// });
+// it("responds to name change", done => {
+//   const handleChangeSpy = sinon.stub(Login.prototype, "handleChange");
+//   const event = {target: {name: "password"}};
+//   const wrap = mount(
+//     <Login />
+//   );
+//   wrap.name('password').simulate('change', event);
+//   expect(handleChangeSpy.calledOnce).to.equal(true);
+// })
 // // Test #4
 //   test("render homepage text", ()=>{
 //   const wrapper = shallow(< Home/>);
@@ -124,4 +217,14 @@ describe("testing", () =>{
 //   const wrapper = shallow(<About/>);
 //   expect(wrapper.find('.GopiName h5').text()).toContain("Team Member");
 // });
+
+it('one',()=>{
+  const wrapper=shallow(<Login />)
+  let nameInput=wrapper.find('input').first()
+  nameInput.simulate('change',{
+    target:{value:'gmacha@students.kennesaw.edu'}
+  })
+   nameInput=wrapper.find('input').first()
+   expect(nameInput.props().value).toEqual('gmacha@students.kennesaw.edu')
+})
   })
