@@ -15,6 +15,7 @@ import Home from './components/home';
 import Login from "./components/login.component";
 import About from './components/about'
 import SignUp from "./components/signup.component";
+
 configure({adapter: new Adapter()});
 
 describe("testing", () =>{
@@ -28,11 +29,18 @@ describe("testing", () =>{
  // });
 
 //   // Test #2 
-   test("render text in mission", ()=>{
+   test("Login text", ()=>{
      const wrapper = shallow(<App/>);
    expect(wrapper.find('li .Login1').text()).toContain("Login");
   });
-
+  test("Signup text", ()=>{
+    const wrapper = shallow(<App/>);
+  expect(wrapper.find('li .signup1').text()).toContain("Sign up");
+ });
+ test("about text", ()=>{
+  const wrapper = shallow(<App/>);
+expect(wrapper.find('li .about').text()).toContain("About Us");
+});
 // // Test #3
 test('valid path should redirect to Home', () => {
   const wrapper = mount(
@@ -64,7 +72,7 @@ test('valid path should redirect to About', () => {
 
 });
 
-test('valid path should redirect to Login', () => {
+test('valid path should redirect to signup', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={[ "/sign-up" ]}>
       <SignUp/>
@@ -74,7 +82,15 @@ test('valid path should redirect to Login', () => {
 
 }); 
 
+test('valid path should redirect to login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-in" ]}>
+      <Login/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Login)).toHaveLength(1);
 
+}); 
 // it('calls handleDropdown onChange', () => {
 //   const handleDropdown = jest.fn();
 //   const wrapper = shallow(<handleChange handleDropdown={handleDropdown} />);
@@ -228,6 +244,20 @@ it('Login email',()=>{
   console.log(wrapper)
    //nameInput=wrapper.find('input').first()
    expect(wrapper.find(".em").prop("value")).toEqual("gmacha@students.kennesaw.edu");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+
+it('signup first name',()=>{
+  const wrapper=shallow(<SignUp />)
+  let nameInput=wrapper.find('.fn')
+  nameInput.simulate('change',{
+    target:{name:'firstName',value:'betalian'}
+  })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+  //  expect(wrapper.find(".fn").prop("value")).toEqual("");
    //expect(nameInput.props().value).toEqual('gm')
  
 })
