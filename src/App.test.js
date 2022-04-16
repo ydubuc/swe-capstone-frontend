@@ -274,4 +274,34 @@ it('Login password',()=>{
    //expect(nameInput.props().value).toEqual('gm')
  
 })
+it('Login axios',()=>{
+  const wrapper=shallow(
+    <Login />
+  )
+  let nameInput=wrapper.find('.em1')
+  nameInput.simulate('submit',{
+    target:{name:'email',value:'gmacha@students.kennesaw.edu',name:'password',value:'Betalian@123'}
+  })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find('p .error')).toHaveLength(0);;
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+it('signup axios',()=>{
+  const wrapper=shallow(
+    <SignUp />
+  )
+  let nameInput=wrapper.find('.si')
+  nameInput.simulate('submit',{
+    target:{name:'firstName',value:'Gopi',name:'lastName',value:'macha',name:'email',value:'gmacha@students.kennesaw.edu',name:'password',value:'Betalian@123'}
+  })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find('p .error')).toHaveLength(0);;
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
   })

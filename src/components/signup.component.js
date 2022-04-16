@@ -20,7 +20,7 @@ function SignUp() {
     });
   }
   const handleSubmit = event => {
-    event.preventDefault();
+    //event.preventDefault();
     axios.post("  https://swe-capstone-backend.herokuapp.com/auth/sign-up", {
       firstName: state.firstName,
       lastName: state.lastName,
@@ -58,7 +58,7 @@ function SignUp() {
   return (
     <div className="auth-wrapper">
         <div className="auth-inner">
-    <form onSubmit={handleSubmit}>
+    <form className="si" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
 
       <div className="form-group fn">

@@ -20,15 +20,15 @@ function Login() {
   }
   
   const handleSubmit = event => {
-    event.preventDefault();
+   // event.preventDefault();
     axios.post(" https://swe-capstone-backend.herokuapp.com/auth/sign-in", {
       email: state.email,
       password: state.password
     })
     .catch((error) => {
-    //  console.log("hi");
+      console.log("hi");
      unreadMessages=true;
-    //  console.log( error.response.data.message);
+      console.log( error.response.data.message);
      setState({
       ...state,
       created: true,
@@ -64,7 +64,7 @@ function Login() {
     
       <div className="auth-wrapper">
        <div className="auth-inner">
-<form onSubmit={handleSubmit}>
+<form  className="em1" onSubmit={handleSubmit}>
       <h3>Sign In</h3>
       <div className="form-group">
         <label>Email address</label>
@@ -108,7 +108,7 @@ function Login() {
         Forgot <a href="#">password?</a>
       </p>
       {state.created &&
-    <p style={{color: "red"}}> 
+    <p className="error"style={{color: "red"}}> 
       {state.message}
     </p>
     
