@@ -15,6 +15,7 @@ import Home from './components/home';
 import Login from "./components/login.component";
 import About from './components/about'
 import SignUp from "./components/signup.component";
+import mockAxios from 'jest-mock-axios';
 configure({adapter: new Adapter()});
 
 describe("testing", () =>{
@@ -224,8 +225,8 @@ it('Login email',()=>{
   nameInput.simulate('change',{
     target:{name:'email',value:'gmacha@students.kennesaw.edu'}
   })
-  console.log(nameInput);
-  console.log(wrapper)
+  // console.log(nameInput);
+  // console.log(wrapper)
    //nameInput=wrapper.find('input').first()
    expect(wrapper.find(".em").prop("value")).toEqual("gmacha@students.kennesaw.edu");
    //expect(nameInput.props().value).toEqual('gm')
@@ -237,11 +238,43 @@ it('Login password',()=>{
   nameInput.simulate('change',{
     target:{name:'password',value:'Betalian@123'}
   })
-  console.log(nameInput);
-  console.log(wrapper)
+  // console.log(nameInput);
+  // console.log(wrapper)
    //nameInput=wrapper.find('input').first()
    expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
    //expect(nameInput.props().value).toEqual('gm')
  
 })
+
+it('Login password axios',()=>{
+  const wrapper=shallow(<Login />)
+  let nameInput=wrapper.find('.on')
+  nameInput.simulate('submit',{
+    target:{name:'password',value:'Betalian@123',name:'email',value:"gmacha@students.kennesaw.edu"}
+  })
+  //console.log(nameInput);
+  //console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   //expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+// it("UppercaseProxy should get data from the server and convert it to UPPERCASE", async () => {
+//   const clientMessage = "client is saying hello!";
+
+//   const promise = Login(clientMessage);
+
+//   expect(mockAxios.post).toHaveBeenCalledWith("/https://swe-capstone-backend.herokuapp.com/auth/sign-in/", {
+//     email: state.email,
+//     password: state.password
+//   });
+
+//   // simulating a server response
+//   const responseObj = { data: "server says hello!" };
+//   mockAxios.mockResponse(responseObj);
+
+//   const result = await promise;
+
+//   expect(result).toEqual("SERVER SAYS HELLO!")
+// });
   })
