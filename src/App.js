@@ -73,10 +73,10 @@ function App() {
               <Link  className="Login1" to={"/sign-in"}>Login</Link>
             </li>
             <li>
-              <Link to={"/sign-up"}>Sign up</Link>
+              <Link className="signup1" to={"/sign-up"}>Sign up</Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link  className="about" to="/about">About Us</Link>
             </li>
             <li>
               <a href="mailto:ksuwebservices@gmail.com">Email Us</a> 

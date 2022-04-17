@@ -33,7 +33,14 @@ describe("testing", () =>{
      const wrapper = shallow(<App/>);
    expect(wrapper.find('li .Login1').text()).toContain("Login");
   });
-
+  test("Signup text", ()=>{
+    const wrapper = shallow(<App/>);
+  expect(wrapper.find('li .signup1').text()).toContain("Sign up");
+ });
+ test("about text", ()=>{
+  const wrapper = shallow(<App/>);
+expect(wrapper.find('li .about').text()).toContain("About Us");
+});
 // // Test #3
 test('valid path should redirect to Home', () => {
   const wrapper = mount(
@@ -75,7 +82,15 @@ test('valid path should redirect to signup', () => {
 
 }); 
 
+test('valid path should redirect to login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-in" ]}>
+      <Login/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Login)).toHaveLength(1);
 
+}); 
 // it('calls handleDropdown onChange', () => {
 //   const handleDropdown = jest.fn();
 //   const wrapper = shallow(<handleChange handleDropdown={handleDropdown} />);

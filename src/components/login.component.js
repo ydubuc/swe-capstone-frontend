@@ -30,7 +30,7 @@ function Login() {
     .catch((error) => {
      console.log("error");
      unreadMessages=true;
-    //  console.log( error.response.data.message);
+      console.log( error.response.data.message);
      setState({
       ...state,
       created: true,
@@ -110,7 +110,7 @@ function Login() {
         Forgot <a href="#">password?</a>
       </p>
       {state.created &&
-    <p style={{color: "red"}}> 
+    <p className="error"style={{color: "red"}}> 
       {state.message}
     </p>
     
