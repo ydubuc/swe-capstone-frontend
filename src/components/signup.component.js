@@ -22,7 +22,7 @@ function SignUp() {
   const handleSubmit = event => {
     console.log(state)
     event.preventDefault();
-    axios.post("https://https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
+    axios.post("https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
       firstName: state.firstName,
       lastName: state.lastName,
       email:state.email,
