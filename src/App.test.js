@@ -29,7 +29,7 @@ describe("testing", () =>{
  // });
 
 //   // Test #2 
-   test("render text in mission", ()=>{
+   test("Home page Login button text", ()=>{
      const wrapper = shallow(<App/>);
    expect(wrapper.find('li .Login1').text()).toContain("Login");
   });
@@ -65,7 +65,7 @@ test('valid path should redirect to About', () => {
 
 });
 
-test('valid path should redirect to Login', () => {
+test('valid path should redirect to signup', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={[ "/sign-up" ]}>
       <SignUp/>
@@ -106,15 +106,15 @@ test('valid path should redirect to Login', () => {
 
   // expect(toJson(component)).toMatchSnapshot();
 // });
-// test('valid path should redirect to Login', () => {
-//   const wrapper = mount(
-//     <MemoryRouter initialEntries={[ "/sign-in" ]}>
-//       <Login/>
-//     </MemoryRouter>
-//   );
-//   expect(wrapper.find(Login)).toHaveLength(1);
+test('valid path should redirect to Login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-in" ]}>
+      <Login/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Login)).toHaveLength(1);
 
-// });
+});
 // it("responds to name change", done => {
 //   const handleChangeSpy = sinon.stub(Login.prototype, "handleChange");
 //   const event = {target: {name: "password"}};
@@ -219,7 +219,7 @@ test('valid path should redirect to Login', () => {
 //   expect(wrapper.find('.GopiName h5').text()).toContain("Team Member");
 // });
 
-it('Login email',()=>{
+it('Login email field',()=>{
   const wrapper=shallow(<Login />)
   let nameInput=wrapper.find('.em')
   nameInput.simulate('change',{
@@ -232,7 +232,7 @@ it('Login email',()=>{
    //expect(nameInput.props().value).toEqual('gm')
  
 })
-it('Login password',()=>{
+it('Login password field',()=>{
   const wrapper=shallow(<Login />)
   let nameInput=wrapper.find('.pa')
   nameInput.simulate('change',{
@@ -245,20 +245,32 @@ it('Login password',()=>{
    //expect(nameInput.props().value).toEqual('gm')
  
 })
-
-it('Login password axios',()=>{
-  const wrapper=shallow(<Login />)
-  let nameInput=wrapper.find('.on')
-  nameInput.simulate('submit',{
-    target:{name:'password',value:'Betalian@123',name:'email',value:"gmacha@students.kennesaw.edu"}
+it('signup password field',()=>{
+  const wrapper=shallow(<SignUp />)
+  let nameInput=wrapper.find('.pa')
+  nameInput.simulate('change',{
+    target:{name:'password',value:'Betalian@123'}
   })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+// it('Login password axios',()=>{
+//   const wrapper=shallow(<Login />)
+//   let nameInput=wrapper.find('.on')
+//   nameInput.simulate('submit',{
+//     target:{name:'password',value:'Betalian@123',name:'email',value:"gmacha@students.kennesaw.edu"}
+//   })
   //console.log(nameInput);
   //console.log(wrapper)
    //nameInput=wrapper.find('input').first()
    //expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
    //expect(nameInput.props().value).toEqual('gm')
  
-})
+// })
 // it("UppercaseProxy should get data from the server and convert it to UPPERCASE", async () => {
 //   const clientMessage = "client is saying hello!";
 

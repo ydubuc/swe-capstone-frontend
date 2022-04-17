@@ -20,8 +20,9 @@ function SignUp() {
     });
   }
   const handleSubmit = event => {
+    console.log(state)
     event.preventDefault();
-    axios.post("  https://swe-capstone-backend.herokuapp.com/auth/sign-up", {
+    axios.post("https://https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
       firstName: state.firstName,
       lastName: state.lastName,
       email:state.email,
@@ -98,10 +99,11 @@ function SignUp() {
         <label>Password</label>
         <input
           type="password"
-          className="form-control"
+          className="form-control pa"
           placeholder="Enter password"
           onChange={handleChange}
           name="password"
+          value={state.password}
         />
       </div>
 

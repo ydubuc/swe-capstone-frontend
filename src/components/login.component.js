@@ -21,8 +21,8 @@ function Login() {
   
   const handleSubmit = event => {
   console.log(state);
-   // event.preventDefault();
-    axios.post(" https://swe-capstone-backend.herokuapp.com/auth/sign-in", {
+   event.preventDefault();
+    axios.post(" https://fast-anchorage-45162.herokuapp.com/auth/sign-in", {
       email: state.email,
       password: state.password
     })
