@@ -31,15 +31,15 @@ function About(){
                <Col className="section-title teamTitle"><h2>MEET THE TEAM MEMBERS</h2></Col>
             </Row>
             <Row className="body-row body-row-member">
-                <Col><div><Image src={placeholderImageCN} className="member-img" /></div></Col>
+                {/* <Col><div><Image src={placeholderImageCN} className="member-img" /></div></Col> */}
                 <Col className="member-info ChristyName">
-                    <h3><strong>Christy Neal</strong></h3>
+                    <h3><strong>Ezechi Njoku</strong></h3>
                     <h5>Team Leader</h5>
-                    <p>I’m a bachelor’s degree holder of 2018 in dance mainly focusing on production. But after a while IT related fields started capturing my interest more than I would like to admit. After a while I decided to fully pursue the IT related fields in 2019. Currently I’m a Software engineer masters student in her second semester trying to learn something new every day. I’m working on the G.Match app with my team mates.</p>
+                    <p>I’m a senior software engineer at The Home Depot. I am obtaining my master’s in software engineering. I have roughly 5 years’ experience as a software engineer, my best programming language is Java and I really enjoy backend work, But I am a full stack developer as well, with adequate knowledge in HTML, CSS, JavaScript, angular, and spring boot, as these are my day-to-day languages of use. I’m working on SummIT  with my teammates </p>
                 </Col>
             </Row>
             <Row className="body-row body-row-member">
-                <Col><div><Image src={placeholderImageGM} className="member-img" /></div></Col>
+                {/* <Col><div><Image src={placeholderImageGM} className="member-img" /></div></Col> */}
                 <Col className="member-info GopiName">
                     <h3><strong>Gopi Macha</strong></h3>
                     <h5>Team Member</h5>
@@ -47,14 +47,22 @@ function About(){
                 </Col>
             </Row>
             <Row className="body-row body-row-member">
-                <Col><div><Image src={placeholderImageLE} className="member-img" /></div></Col>
+                {/* <Col><div><Image src={placeholderImageLE} className="member-img" /></div></Col> */}
+                 <Col className="member-info LeulName">
+                    <h3><strong>Yoan Dubuc</strong></h3>
+                    <h5>Team Member</h5>
+                    <p>I'm Yoan Dubuc currently pursing my master’s in software engineering. My experience in software development and also my interests are building mobile apps for iOS and Android, working on backends, and databases. I'm familiar with Swift and Kotlin for iOS and Android respectively, JS/TS for frontend and backend with Node.JS. I keep myself entertained with movies and TV shows, video games, tabletop games with my brothers like Warhammer 40k, and tennis.</p>
+                </Col>
+            </Row>
+            <Row className="body-row body-row-member">
+                {/* <Col><div><Image src={placeholderImageLE} className="member-img" /></div></Col> */}
                  <Col className="member-info LeulName">
                     <h3><strong>Leul Endashaw</strong></h3>
                     <h5>Team Member</h5>
                     <p>I’m a students at Kennesaw state university doing my masters in software engineering. I did my bachelors degree in computer science, which started me on this journey and encouraged me to pursue it more. I’m currently working in this game matching project which has thought me a lot and gave me a chance to collaborate with my team mates.</p>
                 </Col>
             </Row>
-            <Row className="body-row body-row-member">
+            {/* <Row className="body-row body-row-member">
                 <Col><div><Image src={placeholderImagePN} className="member-img" /></div></Col>
                 <Col className="member-info">
                    <div className='PhuongName'> <h3><strong>Phuong Nguyen</strong></h3></div>
@@ -65,7 +73,7 @@ function About(){
                         in a timely manner will help him gain more experiences in web application development and increase 
                         chances for job seeking in the future.</p>
                 </Col>
-            </Row>
+            </Row> */}
             {/* <Footer /> */}
         </Container>
         
