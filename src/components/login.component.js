@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import Footer from './Footer'
 import { useHistory } from "react-router-dom";
 let  unreadMessages = false;
 function Login() {
@@ -120,6 +121,7 @@ function Login() {
       {state.created && <p>sucess</p>}
     </div> */}
     </div>
+    <Footer />
     </div>
     
   );

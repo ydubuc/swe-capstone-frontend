@@ -1,15 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer'
 // import LogoTitle from './LogoTitle.js';
 // import Footer from './Footer.js';
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import placeholderImageCN from '../Images/GM.jpg'
-import placeholderImageGM from "../Images/GM.jpg";
-import placeholderImageLE from "../Images/LE.png";
-import placeholderImagePN from "../Images/LE.png";
+// import placeholderImageCN from '../Images/GM.jpg'
+// import placeholderImageGM from "../Images/GM.jpg";
+// import placeholderImageLE from "../Images/LE.png";
+// import placeholderImagePN from "../Images/LE.png";
 
 function About(){
     return(
+        <div>
         <Container fluid class="con">
             {/* <LogoTitle /> */}
             <Row>
@@ -62,21 +64,21 @@ function About(){
                     <p>I’m a students at Kennesaw state university doing my masters in software engineering. I did my bachelors degree in computer science, which started me on this journey and encouraged me to pursue it more. I’m currently working in this game matching project which has thought me a lot and gave me a chance to collaborate with my team mates.</p>
                 </Col>
             </Row>
-            {/* <Row className="body-row body-row-member">
-                <Col><div><Image src={placeholderImagePN} className="member-img" /></div></Col>
+            <Row className="body-row body-row-member">
+          
                 <Col className="member-info">
-                   <div className='PhuongName'> <h3><strong>Phuong Nguyen</strong></h3></div>
+                   <div className='PhuongName'> <h3><strong>Lulit Asfaw</strong></h3></div>
                     <h5>Team Member</h5>
-                    <p>Phuong is currently a graduate student at Kennesaw State University. His bachelor degree is in 
-                        Civil Engineering. He is always facinated about how computer technology works and developped. 
-                        That is why he has chosen Software Engineering for his advance degree. Completing this web app 
-                        in a timely manner will help him gain more experiences in web application development and increase 
-                        chances for job seeking in the future.</p>
+                    <p>Software Engineering Grad student with interests in Data Science and Web Development. Programming languages of choice include Python, HTML, CSS, and JavaScript.</p>
                 </Col>
-            </Row> */}
+            </Row> 
             {/* <Footer /> */}
         </Container>
         
+    
+
+        <Footer />
+    </div>
     )
 }
 export default About;
