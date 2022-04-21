@@ -1,6 +1,6 @@
 ## Description
 
-This is the frontend repository of the SWE Capstone class for GTRI
+This is the frontend repository of the SWE Capstone class for GTR
 
 ## Installation
 
