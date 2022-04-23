@@ -15,6 +15,7 @@ import Home from './components/home';
 import Login from "./components/login.component";
 import About from './components/about'
 import SignUp from "./components/signup.component";
+import mockAxios from 'jest-mock-axios';
 configure({adapter: new Adapter()});
 
 describe("testing", () =>{
@@ -28,11 +29,18 @@ describe("testing", () =>{
  // });
 
 //   // Test #2 
-   test("render text in mission", ()=>{
+   test("Home page Login button text", ()=>{
      const wrapper = shallow(<App/>);
    expect(wrapper.find('li .Login1').text()).toContain("Login");
   });
-
+  test("Signup text", ()=>{
+    const wrapper = shallow(<App/>);
+  expect(wrapper.find('li .signup1').text()).toContain("Sign up");
+ });
+ test("about text", ()=>{
+  const wrapper = shallow(<App/>);
+expect(wrapper.find('li .about').text()).toContain("About Us");
+});
 // // Test #3
 test('valid path should redirect to Home', () => {
   const wrapper = mount(
@@ -64,7 +72,7 @@ test('valid path should redirect to About', () => {
 
 });
 
-test('valid path should redirect to Login', () => {
+test('valid path should redirect to signup', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={[ "/sign-up" ]}>
       <SignUp/>
@@ -74,7 +82,15 @@ test('valid path should redirect to Login', () => {
 
 }); 
 
+test('valid path should redirect to login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-in" ]}>
+      <Login/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Login)).toHaveLength(1);
 
+}); 
 // it('calls handleDropdown onChange', () => {
 //   const handleDropdown = jest.fn();
 //   const wrapper = shallow(<handleChange handleDropdown={handleDropdown} />);
@@ -105,15 +121,15 @@ test('valid path should redirect to Login', () => {
 
   // expect(toJson(component)).toMatchSnapshot();
 // });
-// test('valid path should redirect to Login', () => {
-//   const wrapper = mount(
-//     <MemoryRouter initialEntries={[ "/sign-in" ]}>
-//       <Login/>
-//     </MemoryRouter>
-//   );
-//   expect(wrapper.find(Login)).toHaveLength(1);
+test('valid path should redirect to Login', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={[ "/sign-in" ]}>
+      <Login/>
+    </MemoryRouter>
+  );
+  expect(wrapper.find(Login)).toHaveLength(1);
 
-// });
+});
 // it("responds to name change", done => {
 //   const handleChangeSpy = sinon.stub(Login.prototype, "handleChange");
 //   const event = {target: {name: "password"}};
@@ -218,13 +234,74 @@ test('valid path should redirect to Login', () => {
 //   expect(wrapper.find('.GopiName h5').text()).toContain("Team Member");
 // });
 
-it('one',()=>{
+it('Login email field',()=>{
   const wrapper=shallow(<Login />)
-  let nameInput=wrapper.find('input').first()
+  let nameInput=wrapper.find('.em')
   nameInput.simulate('change',{
-    target:{value:'gmacha@students.kennesaw.edu'}
+    target:{name:'email',value:'gmacha@students.kennesaw.edu'}
   })
-   nameInput=wrapper.find('input').first()
-   expect(nameInput.props().value).toEqual('gmacha@students.kennesaw.edu')
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".em").prop("value")).toEqual("gmacha@students.kennesaw.edu");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
 })
+it('Login password field',()=>{
+  const wrapper=shallow(<Login />)
+  let nameInput=wrapper.find('.pa')
+  nameInput.simulate('change',{
+    target:{name:'password',value:'Betalian@123'}
+  })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+it('signup password field',()=>{
+  const wrapper=shallow(<SignUp />)
+  let nameInput=wrapper.find('.pa')
+  nameInput.simulate('change',{
+    target:{name:'password',value:'Betalian@123'}
+  })
+  // console.log(nameInput);
+  // console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+})
+// it('Login password axios',()=>{
+//   const wrapper=shallow(<Login />)
+//   let nameInput=wrapper.find('.on')
+//   nameInput.simulate('submit',{
+//     target:{name:'password',value:'Betalian@123',name:'email',value:"gmacha@students.kennesaw.edu"}
+//   })
+  //console.log(nameInput);
+  //console.log(wrapper)
+   //nameInput=wrapper.find('input').first()
+   //expect(wrapper.find(".pa").prop("value")).toEqual("Betalian@123");
+   //expect(nameInput.props().value).toEqual('gm')
+ 
+// })
+// it("UppercaseProxy should get data from the server and convert it to UPPERCASE", async () => {
+//   const clientMessage = "client is saying hello!";
+
+//   const promise = Login(clientMessage);
+
+//   expect(mockAxios.post).toHaveBeenCalledWith("/https://swe-capstone-backend.herokuapp.com/auth/sign-in/", {
+//     email: state.email,
+//     password: state.password
+//   });
+
+//   // simulating a server response
+//   const responseObj = { data: "server says hello!" };
+//   mockAxios.mockResponse(responseObj);
+
+//   const result = await promise;
+
+//   expect(result).toEqual("SERVER SAYS HELLO!")
+// });
   })

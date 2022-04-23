@@ -8,6 +8,7 @@ import quality from '../Images/quality.jpg'
 import data from '../Images/data.jpg'
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import React from 'react';
+import Footer from './Footer'
 // import { browserHistory } from 'react-router';
 import { useHistory } from "react-router-dom";
 // import { Row } from 'react-bootstrap';
@@ -124,7 +125,7 @@ function Home(){
 
 
             </div>
-            {/* <Footer /> */}
+            <Footer /> 
         </div>        
     )
 }
