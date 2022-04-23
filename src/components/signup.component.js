@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Footer from './Footer'
 function SignUp() {
   const history = useHistory();
   const [state, setState] = React.useState({
@@ -119,6 +120,7 @@ function SignUp() {
         </p>}
     </form>
     </div>
+<Footer/>
     </div>
   );
 }
