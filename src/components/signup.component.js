@@ -58,10 +58,10 @@ function SignUp() {
   return (
     <div className="auth-wrapper">
       <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
+        <form className="si" onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
 
-          <div className="form-group">
+          <div className="form-group fn">
             <label>First name</label>
             <input
               type="text"
@@ -98,10 +98,11 @@ function SignUp() {
             <label>Password</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control pa"
               placeholder="Enter password"
               onChange={handleChange}
               name="password"
+          value={state.password}
             />
           </div>
 
