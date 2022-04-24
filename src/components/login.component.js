@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import Footer from './Footer'
 import { useHistory } from "react-router-dom";
 let unreadMessages = false;
 
@@ -21,63 +22,59 @@ function Login() {
   }
 
   const handleSubmit = event => {
-    event.preventDefault();
+   event.preventDefault();
     axios.post("https://fast-anchorage-45162.herokuapp.com/auth/sign-in", {
       email: state.email,
       password: state.password
     })
-      .catch((error) => {
-        unreadMessages = true;
-        setState({
-          ...state,
-          created: true,
-          message: error.response.data.message,
-        });
-      })
-      .then((response) => {
-
-        if (response) {
-          setState({
-            ...state,
-            created: false
-          });
-
-          localStorage.setItem("token", response.data.token);
-
-          history.push(
-            {
-              pathname: "/tickets",
-            });
-        }
-
-
+    .catch((error) => {
+     unreadMessages=true;
+     setState({
+      ...state,
+      created: true,
+      message:error.response.data.message,
+    });
+    })
+    .then((response) => {
+      if(response){
+      setState({
+        ...state,
+       created: false
       });
-  };
-  
+
+        history.push(
+          {
+              pathname:"/tickets",
+      });
+      }
+
+  });
+   };
+
   return (
     <div className="auth-wrapper">
       <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
+        <form className="on"onSubmit={handleSubmit}>
           <h3>Sign In</h3>
           <div className="form-group">
             <label>Email address</label>
             <input
               type="email"
-              className="form-control"
+              className="form-controlem"
               placeholder="Enter email"
               onChange={handleChange}
-              name="email"
+              value={state.email}name="email"
             />
           </div>
           <div className="form-group">
             <label>Password</label>
             <input
               type="password"
-              className="form-control"
+              className="form-controlpa"
               placeholder="Enter password"
               name="password"
               onChange={handleChange}
-            />
+            value={state.password}/>
           </div>
           <div className="form-group">
             <div className="custom-control custom-checkbox">
@@ -99,13 +96,14 @@ function Login() {
             Forgot <a href="#">password?</a>
           </p>
           {state.created &&
-            <p style={{ color: "red" }}>
+            <p className="error"style={{ color: "red" }}>
               {state.message}
             </p>
 
           }
         </form>
       </div>
+    <Footer />
     </div>
 
   );
