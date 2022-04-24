@@ -42,35 +42,46 @@
 
 // export default App;
 
-
-
-
-import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import React from "react";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from './components/home';
+import Home from "./components/home";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
-import ticket from './components/ticket.js';
+import ticket from "./components/ticket.js";
 import placeholderImageLogo from "./Images/G.png";
-import About from './components/about'
-import { Navbar, Container, Row, Col, Image } from 'react-bootstrap';
+import About from "./components/about";
+import { Navbar, Container, Row, Col, Image } from "react-bootstrap";
+import ProtectedRoute from "./util/protected-route";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <div className="nav-div" style={{height: '100%'}}>
+        <div className="nav-div" style={{ height: "100%" }}>
           <ul className="navbar">
             <li>
-              <a id="logo-nav" className="logo-nav" style={{padding: '0px'}} href='/'><Image src={placeholderImageLogo} className="logo-img" style={{width: '100px', height: '50px'}} /></a>
+              <a
+                id="logo-nav"
+                className="logo-nav"
+                style={{ padding: "0px" }}
+                href="/"
+              >
+                <Image
+                  src={placeholderImageLogo}
+                  className="logo-img"
+                  style={{ width: "100px", height: "50px" }}
+                />
+              </a>
             </li>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link  className="Login1" to={"/sign-in"}>Login</Link>
+              <Link className="Login1" to={"/sign-in"}>
+                Login
+              </Link>
             </li>
             <li>
               <Link to={"/sign-up"}>Sign up</Link>
@@ -79,7 +90,7 @@ function App() {
               <Link to="/about">About Us</Link>
             </li>
             <li>
-              <a href="mailto:ksuwebservices@gmail.com">Email Us</a> 
+              <a href="mailto:ksuwebservices@gmail.com">Email Us</a>
             </li>
             {/* <li>
               <Link to="/start">Started</Link>
@@ -87,11 +98,11 @@ function App() {
           </ul>
           {/* <hr /> */}
           <Switch>
-          <Route exact path='/' component={Home} />
+            <ProtectedRoute exact path="/" component={Home} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
-            <Route path="/tickets" component={ticket} />
-            <Route path="/about" component={About} />
+            <ProtectedRoute path="/tickets" component={ticket} />
+            <ProtectedRoute path="/about" component={About} />
           </Switch>
         </div>
       </Router>
