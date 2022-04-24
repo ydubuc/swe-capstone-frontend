@@ -21,14 +21,12 @@ function Login() {
   
   const handleSubmit = event => {
     event.preventDefault();
-    axios.post(" https://swe-capstone-backend.herokuapp.com/auth/sign-in", {
+    axios.post("https://fast-anchorage-45162.herokuapp.com/auth/sign-in", {
       email: state.email,
       password: state.password
     })
     .catch((error) => {
-    //  console.log("hi");
      unreadMessages=true;
-    //  console.log( error.response.data.message);
      setState({
       ...state,
       created: true,
@@ -36,19 +34,18 @@ function Login() {
     });
     })
     .then((response) => {
-      // console.log("hi")
-      // console.log(response);
    
       if(response){
       setState({
         ...state,
        created: false
       });
-     
+
+     localStorage.setItem("token", response.data.token);
+
         history.push(
           {
               pathname:"/tickets",
-              // state:{detail:response.data}
       });
       }
      

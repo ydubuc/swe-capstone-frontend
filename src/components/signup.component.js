@@ -21,7 +21,7 @@ function SignUp() {
   }
   const handleSubmit = event => {
     event.preventDefault();
-    axios.post("  https://swe-capstone-backend.herokuapp.com/auth/sign-up", {
+    axios.post("https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
       firstName: state.firstName,
       lastName: state.lastName,
       email:state.email,
@@ -45,9 +45,12 @@ function SignUp() {
          created: false,
          message:""
         });
+
+        localStorage.setItem("token", response.data.token);
+
         history.push(
           {
-              pathname:"/sign-in",
+              pathname:"/",
               // state:{detail:response.data}
       });
         }
