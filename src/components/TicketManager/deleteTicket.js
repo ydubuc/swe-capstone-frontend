@@ -1,68 +1,74 @@
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import axios from 'axios';
 import { AgGridReact } from 'ag-grid-react';
 import SideNav from "../../CommonComponents/SideNav";
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 function DeleteTicket() {
     const [rowData, setRowData] = useState([]);
     const gridRef = useRef(null);
-    const [state, setState] = React.useState({
-            id: ""
-    });
-
+    const gridStyle = useMemo(() => ({ height: '70%', width: '64%' }), []);
 
     const [columnDefs] = useState([
-       { field: "title", sortable: true, checkboxSelection: true },
-       { field: "priority", sortable: true  },
-       { field: "status", sortable: true  },
-   ]);
+        { field: "title", minWidth: 150, sortable: true, checkboxSelection: true },
+        { field: "description", minWidth: 390, sortable: true },
+        { field: "priority", minWidth: 150, sortable: true },
+        { field: "status", minWidth: 150, sortable: true },
+    ]);
 
     const token = localStorage.getItem('token');
     const config = {
-        headers: {'Authorization': `Bearer ${token}`},
+        headers: { 'Authorization': `Bearer ${token}` },
         params: {
-                title: null,
-                priority: null,
-                status: null
+            title: null,
+            priority: null,
+            status: null
         }
     }
+    const headers = {
+        'Authorization': `Bearer ${token}`
+    };
 
     useEffect(() => {
-            axios.get('https://fast-anchorage-45162.herokuapp.com/tickets', config)
-                .then(res => res.data)
-                .then(rowData => setRowData(rowData))
-        }, []);
-
+        axios.get('https://fast-anchorage-45162.herokuapp.com/tickets', config)
+            .then(res => res.data)
+            .then(rowData => setRowData(rowData))
+    }, []);
 
 
     const onButtonClick = e => {
         const selectedRows = gridRef.current.api.getSelectedRows();
-        console.log(selectedRows[0]);
         alert(`Deleted selected row: ${selectedRows[0].title}`)
-        axios.delete('https://fast-anchorage-45162.herokuapp.com/tickets/'+ `${selectedRows[0].id}`, {'Authorization': `Bearer ${token}`})
-                    .then(res => {
-                        console.log("Deleted!");
-                    })
-     }
+        axios.delete('https://fast-anchorage-45162.herokuapp.com/tickets/' + `${selectedRows[0].id}`, { headers })
+            .then(() => {
+                console.log("Deleted!");
+                window.location.reload();
+            });
+    }
 
-  return (
-    <div className="grid-container">
-        <SideNav />
-        <div className="content-grid-div">
-            <p>Delete Ticket Page</p>
-            <AgGridReact
-                ref={gridRef}
-                rowData={rowData}
-                columnDefs={columnDefs}
-                rowSelection={'single'}></AgGridReact>
-            <button onClick={onButtonClick}>Delete</button>
+    return (
+        <div className="grid-container">
+            <SideNav />
+            <div className="content-grid-div">
+                <h3 className="ticket-header">Delete Ticket</h3>
+                <div style={gridStyle} className="ag-theme-alpine">
+                    <p>Note: Please select one ticket to delete</p>
+                    <AgGridReact
+                        ref={gridRef}
+                        rowData={rowData}
+                        columnDefs={columnDefs}
+                        rowSelection={'single'}></AgGridReact>
+                </div>
+
+                <div className="ticket-footer">
+                    <button onClick={onButtonClick}>Delete</button>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-  );
+    );
 }
 
 export default DeleteTicket;
