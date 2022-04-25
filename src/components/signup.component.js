@@ -9,7 +9,7 @@ function SignUp() {
     email: "",
     password: "",
     message: "",
-    created: false
+    created: false,
   });
 
   function handleChange(evt) {
@@ -19,14 +19,15 @@ function SignUp() {
       [evt.target.name]: value,
     });
   }
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
-      firstName: state.firstName,
-      lastName: state.lastName,
-      email: state.email,
-      password: state.password
-    })
+    axios
+      .post("https://fast-anchorage-45162.herokuapp.com/auth/sign-up", {
+        firstName: state.firstName,
+        lastName: state.lastName,
+        email: state.email,
+        password: state.password,
+      })
       .catch((error) => {
         console.log(error.response.data.message);
         setState({
@@ -41,19 +42,16 @@ function SignUp() {
           setState({
             ...state,
             created: false,
-            message: ""
+            message: "",
           });
 
           localStorage.setItem("token", response.data.token);
-
-          history.push(
-            {
-              pathname: "/",
-            });
+          history.push({
+            pathname: "/tickets",
+          });
         }
       });
   };
-
 
   return (
     <div className="auth-wrapper">
@@ -102,7 +100,7 @@ function SignUp() {
               placeholder="Enter password"
               onChange={handleChange}
               name="password"
-          value={state.password}
+              value={state.password}
             />
           </div>
 
@@ -112,10 +110,7 @@ function SignUp() {
           <p className="forgot-password text-right">
             Already registered <a href="#">sign in?</a>
           </p>
-          {state.created &&
-            <p style={{ color: "red" }}>
-              {state.message}
-            </p>}
+          {state.created && <p style={{ color: "red" }}>{state.message}</p>}
         </form>
       </div>
     </div>
