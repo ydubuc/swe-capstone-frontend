@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Footer from './Footer'
 function SignUp() {
   const history = useHistory();
   const [state, setState] = React.useState({
@@ -104,15 +105,21 @@ function SignUp() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block">
-            Sign Up
-          </button>
-          <p className="forgot-password text-right">
-            Already registered <a href="#">sign in?</a>
-          </p>
-          {state.created && <p style={{ color: "red" }}>{state.message}</p>}
-        </form>
-      </div>
+
+      <button type="submit" className="btn btn-primary btn-block">
+        Sign Up
+      </button>
+      <p className="forgot-password text-right">
+        Already registered <a href="#">sign in?</a>
+      </p>
+      {state.created &&
+    <p style={{color: "red"}}> 
+      {state.message}
+        </p>}
+    </form>
+    </div>
+<Footer/>
+
     </div>
   );
 }
