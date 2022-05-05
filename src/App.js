@@ -63,7 +63,7 @@ function App() {
             </li>
           </ul>
           <Switch>
-            <ProtectedRoute exact path="/" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
             <ProtectedRoute path="/tickets" component={Ticket} />
